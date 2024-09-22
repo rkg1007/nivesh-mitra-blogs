@@ -1,5 +1,5 @@
 {
-  "name": "NextBlog",
+  "name": "Nivesh Mitra Blogs",
   "version": "1.1.2",
   "private": true,
   "scripts": {
@@ -10,6 +10,8 @@
     "stripe:listen": "stripe listen --forward-to localhost:3000/api/webhooks/stripe"
   },
   "dependencies": {
+    "next": "^14.2.13",
+
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.63",
     "@types/react-dom": "^18.2.20",
