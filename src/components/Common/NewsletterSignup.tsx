@@ -1,5 +1,4 @@
 "use client";
-import axios from "axios";
 import { toast } from "react-hot-toast";
 import React, { useState } from "react";
 import Image from "next/image";
@@ -8,34 +7,6 @@ import Loader from "./Loader";
 const NewsletterSignup = () => {
   const [email, setEmail] = useState("");
   const [loader, setLoader] = useState(false);
-
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-
-    if (!email || email == "") {
-      toast.error("Please enter your email address.");
-
-      return;
-    }
-
-    try {
-      setLoader(true);
-      const res = await axios.post("/api/newsletter", { email });
-
-      if (res.data.status == 400) {
-        toast.error(res.data?.title);
-        setEmail("");
-      } else {
-        toast.success("Thanks for signing up!");
-        setEmail("");
-      }
-
-      setLoader(false);
-    } catch (error: any) {
-      toast.error(error.response.data);
-      setLoader(false);
-    }
-  };
 
   return (
     <section className="relative z-10 overflow-hidden bg-gray py-12.5">
@@ -60,7 +31,7 @@ const NewsletterSignup = () => {
               </p>
             </div>
             <div className="w-full max-w-[494px]">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={() => console.log("Sending News Letter")}>
                 <div className="flex items-center gap-5">
                   <div className="w-full max-w-[350px]">
                     <input
