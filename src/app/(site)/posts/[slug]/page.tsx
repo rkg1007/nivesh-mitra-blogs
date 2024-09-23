@@ -1,5 +1,4 @@
 import RenderBodyContent from "@/components/Blog/RenderBodyContent";
-import NewsletterSignup from "@/components/Common/NewsletterSignup";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -68,7 +67,6 @@ const BlogDetails = async () => {
             </button>
           </div>
         </div>
-        <NewsletterSignup />
       </section>
     </main>
   );

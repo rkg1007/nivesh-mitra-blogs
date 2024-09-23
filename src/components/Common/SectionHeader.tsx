@@ -7,7 +7,7 @@ type Data = {
 const SectionHeader = ({ title, description }: Data) => {
   return (
     <>
-      <div className="mb-12.5 text-center">
+      <div className="mb-6 md:mb-12.5 text-center">
         <h2 className="mb-3.5 text-2xl font-bold text-dark sm:text-4xl xl:text-heading-3">
           {title}
         </h2>

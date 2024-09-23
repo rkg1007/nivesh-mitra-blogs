@@ -1,6 +1,5 @@
 import React from "react";
 import { Metadata } from "next";
-import NewsletterSignup from "@/components/Common/NewsletterSignup";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -45,7 +44,6 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-      <NewsletterSignup />
     </main>
   );
 };

@@ -1,5 +1,4 @@
 import RenderBodyContent from "@/components/Blog/RenderBodyContent";
-import NewsletterSignup from "@/components/Common/NewsletterSignup";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -61,7 +60,7 @@ const BlogDetailsThree = async () => {
               {/* <!-- Blog Show More BTN --> */}
               <button className="mx-auto flex justify-center">
                 <Link
-                  href={`/archive`}
+                  href={`/`}
                   className="mt-10 rounded-md border border-dark px-7.5 py-3 font-medium text-dark duration-200 ease-in hover:bg-dark  hover:text-white"
                 >
                   View all Posts

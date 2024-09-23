@@ -1,6 +1,6 @@
+'use client';
 import { Menu } from "@/types/menu";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 const DropDown = ({
@@ -12,56 +12,40 @@ const DropDown = ({
 }) => {
   const [dropdownToggler, setDropdownToggler] = useState(false);
   const pathUrl = usePathname();
+  const router = useRouter();
 
   return (
     <>
-      {menu.title === "Home" ? (
-        <Link
-          onClick={() => setDropdownToggler(!dropdownToggler)}
-          href={menu?.path!}
-          className="flex items-center justify-between gap-3 hover:text-dark"
+      <button
+        onClick={() => setDropdownToggler(!dropdownToggler)}
+        className="flex items-center justify-between gap-3 hover:text-dark w-full"
+      >
+        {menu.title}
+        <svg
+          className="h-3 w-3 cursor-pointer fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
         >
-          {menu.title}
-          <svg
-            className="h-3 w-3 cursor-pointer fill-current"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-          >
-            <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-          </svg>
-        </Link>
-      ) : (
-        <button
-          onClick={() => setDropdownToggler(!dropdownToggler)}
-          className="flex items-center justify-between gap-3 hover:text-dark"
-        >
-          {menu.title}
-          <svg
-            className="h-3 w-3 cursor-pointer fill-current"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-          >
-            <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-          </svg>
-        </button>
-      )}
+          <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+        </svg>
+      </button>
 
       <ul className={`dropdown ${dropdownToggler && "flex"}`}>
         {menu?.submenu &&
           menu?.submenu.map((item, key) => (
             <li key={key}>
-              <Link
+              <button
                 onClick={() => {
                   setNavigationOpen(false);
                   setDropdownToggler(false);
+                  if (item.path) router.push(item.path);
                 }}
-                href={item.path!}
                 className={`flex rounded-md px-4 py-2 text-sm hover:bg-gray hover:text-primary ${
                   pathUrl === item.path && " bg-gray text-primary"
                 }`}
               >
                 {item.title}
-              </Link>
+              </button>
             </li>
           ))}
       </ul>
