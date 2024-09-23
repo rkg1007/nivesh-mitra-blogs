@@ -7,6 +7,7 @@ import menuData from "./menuData";
 import { getUniqueCategories } from "@/data";
 
 const blogCategories = getUniqueCategories();
+console.log("blog categories", blogCategories);
 blogCategories.forEach((category, idx) => {
   menuData[1].submenu?.push({
     id: idx,

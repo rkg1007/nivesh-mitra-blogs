@@ -19,5 +19,7 @@ export const getUniqueCategories = () => {
 export const filterBlogsByCategory = (category) => {
   const blogs = getBlogs();
   if (category == "all") return blogs;
-  return blogs.filter((blog) => blog.category == category);
+  return blogs.filter(
+    (blog) => blog.category.toLowerCase() == category.toLowerCase()
+  );
 };
