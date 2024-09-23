@@ -1,5 +1,6 @@
 import SectionHeader from "@/components/Common/SectionHeader";
 import CategoryMain from "./CategoryMain";
+import { Suspense } from "react";
 
 const Category = async () => {
   return (
@@ -11,7 +12,9 @@ const Category = async () => {
             description="Select a category to see more related content"
           />
 
-          <CategoryMain  />
+          <Suspense>
+            <CategoryMain />
+          </Suspense>
         </div>
       </section>
     </>
